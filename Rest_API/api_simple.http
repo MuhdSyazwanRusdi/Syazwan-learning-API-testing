@@ -1,0 +1,29 @@
+
+@host= https://reqres.in
+
+GET {{host}}/api/users/2
+
+###
+
+POST {{host}}/api/users/
+
+Content-Type: application/json
+
+{
+    "name": "morpheus",
+    "job": "leader"
+}
+
+###
+
+PUT {{host}}/api/users/2
+Content-Type: application/json
+
+{
+    "name": "morpheus",
+    "job": "leaderExecutive"
+}
+
+###
+
+DELETE {{host}}/api/users/2
