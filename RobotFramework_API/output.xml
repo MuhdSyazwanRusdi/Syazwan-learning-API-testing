@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20220816 12:12:48.939" rpa="false" schemaversion="3">
+<suite id="s1" name="03 Authentication" source="E:\Github\Syazwan-learning-API-testing\RobotFramework_API\API_test_suit\03_authentication.robot">
+<test id="s1-t1" name="Get Authetication Token" line="13">
+<kw name="Create Session" library="RequestsLibrary" type="SETUP">
+<arg>API_testing</arg>
+<arg>${base_url2}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20220816 12:12:49.065" level="INFO">Creating Session using : alias=API_testing, url=https://simple-books-api.glitch.me, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20220816 12:12:49.065" endtime="20220816 12:12:49.066"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body_token}</var>
+<arg>clientName=Postman4</arg>
+<arg>clientEmail=pakwan4@example.com</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220816 12:12:49.066" level="INFO">${body_token} = {'clientName': 'Postman4', 'clientEmail': 'pakwan4@example.com'}</msg>
+<status status="PASS" starttime="20220816 12:12:49.066" endtime="20220816 12:12:49.066"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${header_token}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220816 12:12:49.066" level="INFO">${header_token} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220816 12:12:49.066" endtime="20220816 12:12:49.066"/>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<var>${get_token}</var>
+<arg>API_testing</arg>
+<arg>url=/api-clients</arg>
+<arg>data=${body_token}</arg>
+<arg>headers=${header_token}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<msg timestamp="20220816 12:12:49.066" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20220816 12:12:50.159" level="INFO">POST Request : url=https://simple-books-api.glitch.me/url=/api-clients 
+ path_url=/url=/api-clients 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '64'} 
+ body={"clientName": "Postman4", "clientEmail": "pakwan4@example.com"} 
+ </msg>
+<msg timestamp="20220816 12:12:50.159" level="INFO">POST Response : url=https://simple-books-api.glitch.me/url=/api-clients 
+ status=404, reason=Not Found 
+ headers={'Date': 'Tue, 16 Aug 2022 04:12:50 GMT', 'Content-Type': 'text/html; charset=utf-8', 'Content-Length': '156', 'Connection': 'keep-alive', 'x-powered-by': 'Express', 'content-security-policy': "default-src 'none'", 'x-content-type-options': 'nosniff'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;Error&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;pre&gt;Cannot POST /url=/api-clients&lt;/pre&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg timestamp="20220816 12:12:50.159" level="INFO">C:\Python310\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'simple-books-api.glitch.me'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20220816 12:12:50.159" level="INFO">${get_token} = &lt;Response [404]&gt;</msg>
+<status status="PASS" starttime="20220816 12:12:49.066" endtime="20220816 12:12:50.159"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${get_token.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220816 12:12:50.159" endtime="20220816 12:12:50.160"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${get_token.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220816 12:12:50.160" endtime="20220816 12:12:50.160"/>
+</kw>
+<tag>gettoken</tag>
+<status status="PASS" starttime="20220816 12:12:49.065" endtime="20220816 12:12:50.160"/>
+</test>
+<status status="PASS" starttime="20220816 12:12:48.940" endtime="20220816 12:12:50.162"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">gettoken</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="03 Authentication">03 Authentication</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220816 12:12:49.066" level="WARN">Keyword 'RequestsLibrary.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+</errors>
+</robot>

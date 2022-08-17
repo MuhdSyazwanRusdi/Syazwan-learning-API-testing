@@ -5,6 +5,7 @@ Library           Collections
 
 *** Variables ***
 ${base_url}       https://reqres.in/
+${base_url2}       https://simple-books-api.glitch.me
 
 *** Test Cases ***
 Get Request Single User
@@ -17,5 +18,7 @@ Get Request Single User
     should be equal    ${status_code}    200
     ${body}    convert to string    ${get_respond.content}
     should contain    ${body}    Janet
-    #${hearder_contenttypevalue}=    get from dictionary    ${get_respond.headers}    Content-Type
-    #should be equal    ${hearder_contenttypevalue}    application/json; charset=utf-8
+    ${hearder_contenttypevalue}=    get from dictionary    ${get_respond.headers}    Content-Type
+    should be equal    ${hearder_contenttypevalue}    application/json; charset=utf-8
+
+#robot -d API_test_suit/Output API_test_suit/01_test_get_request.robot
